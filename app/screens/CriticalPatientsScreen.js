@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
 
 
-export default function ViewAllPatientsScreen({navigation})
+export default function CriticalPatientsScreen({navigation})
 {
     //place holder that displays message
     const btnPressed= () =>
@@ -22,19 +22,8 @@ export default function ViewAllPatientsScreen({navigation})
   return (
     <View style={styles.container}>
         <View>
-            <Text style={styles.logo}>Medical information</Text>
-        </View> 
-        <View>
-        <Text style={styles.logo}>Enter patient email</Text>
-            <TextInput
-                style={styles.input}/> 
-        </View>
-        <View>
-            <Button
-                title={'View Record'}
-                onPress = {btnPressed} />
-        </View>
-  
+            <Text style={styles.logo}>Critical Patients</Text>
+        </View>   
     </View> // main view close
   );
 }

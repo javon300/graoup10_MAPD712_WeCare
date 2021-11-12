@@ -13,40 +13,40 @@ export default function HomeScreen ({navigation})
 
         <View style={styles.row}>
           <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}> 
+          onPress={() => navigation.navigate('AddPatient')}> 
             <Text style={styles.Task}>Add Patient</Text>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}> 
+          onPress={() => navigation.navigate('AddRecord')}> 
             <Text style={styles.Task}>Add Patient Record</Text>
           </TouchableOpacity> 
         </View>
 
         <View style={styles.row}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}> 
+          onPress={() => navigation.navigate('ViewPatient')}> 
             <Text style={styles.Task}>View Patient</Text>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}> 
+          onPress={() => navigation.navigate('ViewRecord')}> 
             <Text style={styles.Task}>View Patient Record</Text>
           </TouchableOpacity>                    
         </View>
 
         <View style={styles.row}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}> 
+          onPress={() => navigation.navigate('ViewAllPatients')}> 
             <Text style={styles.Task}>View All Patients</Text>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}> 
+          onPress={() => navigation.navigate('ViewAllRecords')}> 
             <Text style={styles.Task}>View All Patient Records</Text>
           </TouchableOpacity>        
         </View>
         
         <View style={styles.row}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}> 
+          onPress={() => navigation.navigate('CriticalPatients')}> 
             <Text style={styles.Task}>Critical Condition Patients</Text>
           </TouchableOpacity>          
         </View>

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
 
 
-export default function ViewAllPatientsScreen({navigation})
+export default function ViewRecordScreen({navigation})
 {
     //place holder that displays message
     const btnPressed= () =>

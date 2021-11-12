@@ -2,9 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
 
 
-export default function ViewAllPatientsScreen({navigation})
+export default function AddRecordScreen({navigation})
 {
-    //place holder that displays message
     const btnPressed= () =>
     Alert.alert(
       "Alert Title",
@@ -18,20 +17,33 @@ export default function ViewAllPatientsScreen({navigation})
         { text: "OK", onPress: () => console.log("OK Pressed") }
       ]
     );
-
   return (
     <View style={styles.container}>
         <View>
             <Text style={styles.logo}>Medical information</Text>
-        </View> 
-        <View>
-        <Text style={styles.logo}>Enter patient email</Text>
+        </View>
+
+        <View style={styles.body}>
+            <Text style={styles.label}>Blood Pressure</Text>
+            <TextInput
+                style={styles.input}/>
+
+            <Text style={styles.label}>Respiratory Rate </Text>
             <TextInput
                 style={styles.input}/> 
-        </View>
+            
+            <Text style={styles.label}>Blood Oxygen</Text>
+            <TextInput
+                style={styles.input}/>
+
+            <Text style={styles.label}>Heartbeat Rate</Text>
+            <TextInput
+                style={styles.input}/> 
+        </View> 
+        
         <View>
             <Button
-                title={'View Record'}
+                title={'Create Patient'}
                 onPress = {btnPressed} />
         </View>
   
