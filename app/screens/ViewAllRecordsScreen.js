@@ -1,41 +1,60 @@
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text,ScrollView, SafeAreaView, StatusBar, View,} from 'react-native';
 
 
-export default function ViewAllRecordSscreen({navigation})
+export default function ViewAllRecordsScreen({navigation})
 {
-    //place holder that displays message
-    const btnPressed= () =>
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
-
   return (
-    <View style={styles.container}>
-        <View>
-            <Text style={styles.logo}>Medical information</Text>
-        </View> 
-        <View>
-        <Text style={styles.logo}>Enter patient email</Text>
-            <TextInput
-                style={styles.input}/> 
-        </View>
-        <View>
-            <Button
-                title={'View Record'}
-                onPress = {btnPressed} />
-        </View>
-  
-    </View> // main view close
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+          <View style={styles.body}>
+              <Text style={styles.name}>Ricordo Bramfield</Text>
+              <Text style={styles.detail}>Blood pressure: 10.2</Text>
+              <Text style={styles.detail}>Respiratory rate: 87</Text>
+              <Text style={styles.detail}>Blood oxygen level: 67</Text>
+              <Text style={styles.detail}>Heartbeat rate: 78</Text>
+          </View> 
+          <View style={styles.body}>
+              <Text style={styles.name}>Rachel Bramfield</Text>
+              <Text style={styles.detail}>Blood pressure: 10.2</Text>
+              <Text style={styles.detail}>Respiratory rate: 87</Text>
+              <Text style={styles.detail}>Blood oxygen level: 67</Text>
+              <Text style={styles.detail}>Heartbeat rate: 78</Text>
+          </View> 
+          <View style={styles.body}>
+              <Text style={styles.name}>Donald Trump</Text>
+              <Text style={styles.detail}>Blood pressure: 10.2</Text>
+              <Text style={styles.detail}>Respiratory rate: 87</Text>
+              <Text style={styles.detail}>Blood oxygen level: 67</Text>
+              <Text style={styles.detail}>Heartbeat rate: 78</Text>
+          </View>
+
+          <View style={styles.body}>
+              <Text style={styles.name}>Donald Trump</Text>
+              <Text style={styles.detail}>Blood pressure: 10.2</Text>
+              <Text style={styles.detail}>Respiratory rate: 87</Text>
+              <Text style={styles.detail}>Blood oxygen level: 67</Text>
+              <Text style={styles.detail}>Heartbeat rate: 78</Text>
+          </View>  
+
+
+          <View style={styles.body}>
+              <Text style={styles.name}>Donald Trump</Text>
+              <Text style={styles.detail}>Blood pressure: 10.2</Text>
+              <Text style={styles.detail}>Respiratory rate: 87</Text>
+              <Text style={styles.detail}>Blood oxygen level: 67</Text>
+              <Text style={styles.detail}>Heartbeat rate: 78</Text>
+          </View>
+
+          <View style={styles.body}>
+              <Text style={styles.name}>Donald Trump</Text>
+              <Text style={styles.detail}>Blood pressure: 10.2</Text>
+              <Text style={styles.detail}>Respiratory rate: 87</Text>
+              <Text style={styles.detail}>Blood oxygen level: 67</Text>
+              <Text style={styles.detail}>Heartbeat rate: 78</Text>
+          </View>    
+        </ScrollView> 
+    </SafeAreaView>
   );
 }
 
@@ -43,26 +62,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+   // alignItems: 'center',
+    paddingTop: StatusBar.currentHeight,
+  },
+  scrollView: {
+    backgroundColor: 'deepskyblue',
+    marginHorizontal: 10,
   },
   body: {
-   marginTop: 80,
+    flex: 1,
+   marginTop: 20,
+   backgroundColor: 'deepskyblue',
+   marginHorizontal: '10%',
+   marginVertical: '10%',
+   width: '100%',
+  //  paddingVertical: '20%',
   },
-  logo: {  
-    fontSize: 40,
-    marginTop:50,
-   fontWeight: "bold",
-  },
-  label: {
+  name: {
+    color: 'floralwhite',
+    fontWeight: 'bold',
     fontSize: 20,
-    margin: 12,
   },
-  input: {
-    height: 40,
-    width: 250,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
+  detail: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+    paddingLeft: 40,
+
   },
 });
