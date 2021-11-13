@@ -1,39 +1,36 @@
+/**
+ * MAPD712 - group 10 - milestone2 
+ * 
+ * GROUP 10 MEMBERS
+ * Matthew Maxwell        301200258
+ * Poojan Patel           301228811
+ * Sanjeevan Pashparaj    301213104
+ * Divyesh Solanki        301194819
+ * Vidhu Gaba 
+ * 
+ * we named the app weCare hopefully thats not an issue since we will continue
+ *  to work onit for milestone 3
+ * me
+ */
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
 
 
 export default function ViewPatientScreen({navigation})
 {
-    //place holder that displays message
-    const btnPressed= () =>
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
-
   return (
     <View style={styles.container}>
-    <View>
-        <Text style={styles.logo}>Medical information</Text>
-    </View> 
-    <View>
-    <Text style={styles.logo}>Enter patient email</Text>
+      
+      <View>
+        <Text style={styles.label}>Enter patient email</Text>
         <TextInput
-            style={styles.input}/> 
-    </View>
-    <View>
-        <Button
-            title={'View Record'}
-            onPress = {btnPressed} />
-    </View>
+          style={styles.input}/> 
+      </View>
+      <View>
+          <Button
+              title={'View Record'}
+              onPress={() => navigation.navigate('SinglePatientData')}/>
+      </View>
 
 </View> // main view close
   );
@@ -42,23 +39,21 @@ export default function ViewPatientScreen({navigation})
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'deepskyblue',
     alignItems: 'center',
     justifyContent: 'center',
   },
   body: {
    marginTop: 80,
   },
-  logo: {  
-    fontSize: 40,
-    marginTop:50,
-   fontWeight: "bold",
-  },
   label: {
+    color: 'white',
+    fontWeight: 'bold',
     fontSize: 20,
     margin: 12,
   },
   input: {
+    backgroundColor:'white',
     height: 40,
     width: 250,
     margin: 12,

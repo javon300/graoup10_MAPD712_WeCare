@@ -1,3 +1,17 @@
+/**
+ * MAPD712 - group 10 - milestone2 
+ * 
+ * GROUP 10 MEMBERS
+ * Matthew Maxwell        301200258
+ * Poojan Patel           301228811
+ * Sanjeevan Pashparaj    301213104
+ * Divyesh Solanki        301194819
+ * Vidhu Gaba 
+ * 
+ * we named the app weCare hopefully thats not an issue since we will continue
+ *  to work onit for milestone 3
+ * me
+ */
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
@@ -61,18 +75,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logo: {  
-    fontSize: 40,
+  logo: {
+    color: 'deepskyblue',
+
+    fontSize: 50,
     fontWeight: "bold",
   },
-  Task: {  
-    backgroundColor: 'grey',
+  Task: {
+    color: 'white',   
+    backgroundColor: 'deepskyblue',
     textAlign: 'center',
     fontSize: 15,
     marginHorizontal: 15,
     marginVertical :10,
     fontWeight: "bold",
-    borderWidth: 1,
+    borderWidth: 0,
     paddingHorizontal : 15,
     paddingVertical: 30,
   },
@@ -80,5 +97,9 @@ const styles = StyleSheet.create({
     alignContent: 'space-between',
     flexDirection: 'row',
     marginTop:30,
-  }
+  },
+  touchOpacity: {
+    backgroundColor: 'deepskyblue',
+  
+  },
 });

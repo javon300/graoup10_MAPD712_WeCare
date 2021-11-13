@@ -1,24 +1,39 @@
+/**
+ * MAPD712 - group 10 - milestone2 
+ * 
+ * GROUP 10 MEMBERS
+ * Matthew Maxwell        301200258
+ * Poojan Patel           301228811
+ * Sanjeevan Pashparaj    301213104
+ * Divyesh Solanki        301194819
+ * Vidhu Gaba 
+ * 
+ * we named the app weCare hopefully thats not an issue since we will continue
+ *  to work onit for milestone 3
+ * me
+ */
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, SafeAreaView, Alert,StatusBar, ScrollView, View,TextInput, Button } from 'react-native';
 
 
 export default function AddRecordScreen({navigation})
 {
-    const btnPressed= () =>
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
+  const btnPressed= () =>
+  Alert.alert(
+    "Success",
+    "Record Added Successfully",
+    [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
         <View>
             <Text style={styles.logo}>Medical information</Text>
         </View>
@@ -46,8 +61,8 @@ export default function AddRecordScreen({navigation})
                 title={'Create Patient'}
                 onPress = {btnPressed} />
         </View>
-  
-    </View> // main view close
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -55,8 +70,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: StatusBar.currentHeight,
+  },
+  scrollView: {
+    marginHorizontal: 10,
   },
   body: {
    marginTop: 80,
