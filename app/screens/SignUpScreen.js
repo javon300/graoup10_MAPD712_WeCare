@@ -7,15 +7,21 @@ export default function SignUpScreen ({navigation})
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.logo}>Login Screen </Text>
+        <Text style={styles.logo}>Registration Screen </Text>
       </View>
 
       <View style={styles.body}>
+
         <Text style={styles.label}>Email </Text>
         <TextInput
           style={styles.input}
           placeholder={'example@email.com'}/>
+        
         <Text style={styles.label}>Password</Text>
+        <TextInput
+          style={styles.input}/>
+
+        <Text style={styles.label}>Confirm Password</Text>
         <TextInput
           style={styles.input}/>
       
@@ -30,7 +36,7 @@ export default function SignUpScreen ({navigation})
         <Text>already have an account    </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate('LoginScreen')}>
-          <Text>SIgn In </Text>
+          <Text style={styles.link}>SIgn In </Text>
         </TouchableOpacity>
       </View>
   
@@ -51,6 +57,9 @@ const styles = StyleSheet.create({
   noLogIn: {
     marginTop: 20,
     flexDirection: 'row',
+   },
+   link: {
+   color: 'blue',
    },
   logo: {  
     fontSize: 40,

@@ -27,7 +27,7 @@ function App()
         <MyStack.Screen name="HomeScreen" component={HomeScreen} options={{
           headerShown: false
         }}/>
-        <MyStack.Screen name="SignupScreen" component={SignUpScreen} options={{
+        <MyStack.Screen name="SignUpScreen" component={SignUpScreen} options={{
           headerShown: false
         }}/>
         <MyStack.Screen name="AddPatient" component={AddPatientScreen}/>

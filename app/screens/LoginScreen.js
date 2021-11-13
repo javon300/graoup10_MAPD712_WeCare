@@ -30,7 +30,7 @@ export default function LoginScreen ({navigation})
         <Text>Forgot password?    </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate('SignUpScreen')}>
-          <Text>SIgn In </Text>
+          <Text style={styles.link}>SIgn In </Text>
         </TouchableOpacity>
       </View>
   
@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
     marginTop:50,
    fontWeight: "bold",
   },
+  link: {
+    color: 'blue',
+    },
   label: {
     fontSize: 20,
     margin: 12,
