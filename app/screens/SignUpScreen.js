@@ -33,11 +33,11 @@ export default function SignUpScreen ({navigation})
         
         <Text style={styles.label}>Password</Text>
         <TextInput
-          style={styles.input}/>
+          style={styles.input}  secureTextEntry={true}/>
 
         <Text style={styles.label}>Confirm Password</Text>
         <TextInput
-          style={styles.input}/>
+          style={styles.input} secureTextEntry={true}/>
       
         <Button
         style={styles.button}

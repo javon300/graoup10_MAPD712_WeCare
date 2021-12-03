@@ -14,10 +14,48 @@
  */
 import React from 'react';
 import { StyleSheet, Text,ScrollView, SafeAreaView, StatusBar, View,} from 'react-native';
+import {getDBConnection, getRecord, getRecords} from '../model/db-service';
 
 
 export default function ViewAllRecordsScreen({navigation})
 {
+
+  
+  const loadDataCallBack = useCallback(
+    async () => 
+    {
+      try 
+      {
+        //opens then gets all items from database  
+        const db = await getDBConnection();
+        const storedItems = await getRecords(db);
+        if(storedItems.length)  //if there are stored items
+        {
+          //print array of records to console
+          console.log('items retreived')
+          Alert.alert(
+            "Success",
+            storedItems.toString(),
+            [ { 
+                text: "OK", onPress: () => console.log("OK Pressed") 
+              } ]
+          );
+        }
+    
+      } catch (error) 
+      {
+        
+        console.log("unable to retreive database values")
+        console.error(error);
+      }
+      
+    }, []
+    );      //close loadDataCallBack
+
+
+
+
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>

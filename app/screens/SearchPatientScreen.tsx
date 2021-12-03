@@ -13,28 +13,31 @@
  * me
  */
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View,TextInput, Button} from 'react-native';
 
+export default function SearchPatientScreen({navigation})
+  {
+    var getID: number = 0;
+  
+    //sets value of number that is passed to singlePatient DataScreen
+    return (
+      <View style={styles.container}>
+        
+        <View>
+          <Text style={styles.label}>Enter patient id number</Text>
+          <TextInput
+            style={styles.input} onChangeText = {text=> getID = Number(text)}/> 
+        </View>
+        <View>
+            <Button
+                title={'View Record'}
+                onPress={() => navigation.navigate('SinglePatientData')}/>
+        </View>
 
-export default function ViewPatientScreen({navigation})
-{
-  return (
-    <View style={styles.container}>
-      
-      <View>
-        <Text style={styles.label}>Enter patient email</Text>
-        <TextInput
-          style={styles.input}/> 
-      </View>
-      <View>
-          <Button
-              title={'View Record'}
-              onPress={() => navigation.navigate('SinglePatientData')}/>
-      </View>
-
-</View> // main view close
-  );
+  </View>
+    );
 }
+
 
 const styles = StyleSheet.create({
   container: {

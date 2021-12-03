@@ -13,25 +13,29 @@
  * me
  */
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text,  View,TextInput, Button,} from 'react-native';
 
 
-export default function ViewRecordScreen({navigation})
+
+export default function SearchRecordScreen({navigation})
 {
+  var getID: number = 0;
+
   return (
     <View style={styles.container}>
       
       <View>
-        <Text style={styles.label}>Enter patient email</Text>
+        <Text style={styles.label}>Enter patient id</Text>
         <TextInput
-          style={styles.input}/> 
+          style={styles.input} onChangeText = {text=> getID = Number(text)}/> 
       </View>
       <View>
           <Button
               title={'View Record'}
-              onPress={() => navigation.navigate('SingleRecordData')}/>
+              onPress={() => navigation.navigate('SingleRecordData') }
+              />
       </View>
-
+ 
 </View> // main view close
   );
 }

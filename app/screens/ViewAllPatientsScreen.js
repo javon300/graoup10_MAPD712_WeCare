@@ -14,10 +14,48 @@
  */
 import React from 'react';
 import { StyleSheet, Text,ScrollView, SafeAreaView, StatusBar, View,} from 'react-native';
+import { getDBConnection, getPatientItems } from '../model/db-service';
 
 
 export default function ViewAllPatientsScreen({navigation})
 {
+  //gets data from database and displays to console
+  const loadDataCallBack = useCallback
+  (
+    async () => 
+    {
+      try 
+      {
+        //opens then gets all items from database  
+        const db = await getDBConnection();
+        const storedItems = await getPatientItems(db)
+        if(storedItems.length)  //if there are stored items
+        {
+          //print array of patients to console
+          console.log('items retreived')
+          Alert.alert(
+            "Success",
+            storedItems.toString(),
+            [ { 
+                text: "OK", onPress: () => console.log("OK Pressed") 
+              }
+            ]
+          );
+        }
+    
+      } catch (error) 
+      {
+        console.log("unable to retreive database values")
+        console.error(error);
+      }
+      
+    }, []
+  );      //close loadDataCallBack
+
+
+
+
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>

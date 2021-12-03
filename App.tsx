@@ -7,6 +7,9 @@
  * Sanjeevan Pashparaj    301213104
  * Divyesh Solanki        301194819
  * Vidhu Gaba 
+ *  git link: https://github.com/javon300/graoup10_MAPD712_WeCare/settings/access?guidance_task=
+ * 
+ * 
  * 
  * we named the app weCare hopefully thats not an issue since we will continue
  *  to work onit for milestone 3
@@ -17,14 +20,14 @@
 import * as React from 'react';     //imposrt all from react not React from react
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-//created screens
+//imposrtcreated screens
 import HomeScreen from './app/screens/HomeScreen';
 import LoginScreen from './app/screens/LoginScreen';
 import SignUpScreen from './app/screens/SignUpScreen';
 import AddPatientScreen from './app/screens/AddPatientScreen';
 import AddRecordScreen from './app/screens/AddRecordScreen';
-import ViewPatientScreen from './app/screens/ViewPatientScreen';
-import ViewRecordScreen from './app/screens/ViewRecordScreen';
+import SearchPatientScreen from './app/screens/SearchPatientScreen';
+import SearchRecordScreen from './app/screens/SearchRecordScreen';
 import ViewAllPatientsScreen from './app/screens/ViewAllPatientsScreen';
 import ViewAllRecordsScreen from './app/screens/ViewAllRecordsScreen';
 import CriticalPatientsScreen from './app/screens/CriticalPatientsScreen';
@@ -50,8 +53,8 @@ function App()
         }}/>
         <MyStack.Screen name="AddPatient" component={AddPatientScreen}/>
         <MyStack.Screen name="AddRecord" component={AddRecordScreen} />
-        <MyStack.Screen name="ViewPatient" component={ViewPatientScreen}/>
-        <MyStack.Screen name="ViewRecord" component={ViewRecordScreen}/>
+        <MyStack.Screen name="SearchPatientScreeen" component={SearchPatientScreen}/>
+        <MyStack.Screen name="SearchRecordScreen" component={SearchRecordScreen}/>
         <MyStack.Screen name="ViewAllPatients" component={ViewAllPatientsScreen}/>
         <MyStack.Screen name="ViewAllRecords" component={ViewAllRecordsScreen}/>
         <MyStack.Screen name="CriticalPatients" component={CriticalPatientsScreen}/>

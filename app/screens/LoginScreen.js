@@ -31,7 +31,7 @@ export default function LoginScreen ({navigation})
           placeholder={'example@email.com'}/>
         <Text style={styles.label}>Password</Text>
         <TextInput
-          style={styles.input}/>
+          style={styles.input} secureTextEntry={true}/>
       
         <Button
         style={styles.button}
