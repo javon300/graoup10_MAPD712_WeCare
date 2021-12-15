@@ -22,7 +22,7 @@ export default function ViewPatientScreen({navigation})
     <View style={styles.container}>
       
       <View>
-        <Text style={styles.label}>Enter patient email</Text>
+        <Text style={styles.label}>Enter patient id number</Text>
         <TextInput
           style={styles.input}/> 
       </View>

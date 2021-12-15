@@ -39,6 +39,7 @@ function App()
   return (
     <NavigationContainer>
       <MyStack.Navigator>
+        <MyStack.Screen name="AddRecord" component={AddRecordScreen} />
         <MyStack.Screen name="LoginScreen" component={LoginScreen} options={{
           headerShown: false
         }}/>
@@ -49,7 +50,6 @@ function App()
           headerShown: false
         }}/>
         <MyStack.Screen name="AddPatient" component={AddPatientScreen}/>
-        <MyStack.Screen name="AddRecord" component={AddRecordScreen} />
         <MyStack.Screen name="ViewPatient" component={ViewPatientScreen}/>
         <MyStack.Screen name="ViewRecord" component={ViewRecordScreen}/>
         <MyStack.Screen name="ViewAllPatients" component={ViewAllPatientsScreen}/>

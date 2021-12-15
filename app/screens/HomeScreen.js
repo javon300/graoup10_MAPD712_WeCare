@@ -32,7 +32,7 @@ export default function HomeScreen ({navigation})
           </TouchableOpacity>
           <TouchableOpacity
           onPress={() => navigation.navigate('AddRecord')}> 
-            <Text style={styles.Task}>Add Patient Record</Text>
+            <Text style={styles.Task}>Add Record</Text>
           </TouchableOpacity> 
         </View>
 
@@ -43,25 +43,25 @@ export default function HomeScreen ({navigation})
           </TouchableOpacity>
           <TouchableOpacity
           onPress={() => navigation.navigate('ViewRecord')}> 
-            <Text style={styles.Task}>View Patient Record</Text>
+            <Text style={styles.Task}>View Record</Text>
           </TouchableOpacity>                    
         </View>
 
         <View style={styles.row}>
         <TouchableOpacity
           onPress={() => navigation.navigate('ViewAllPatients')}> 
-            <Text style={styles.Task}>View All Patients</Text>
+            <Text style={styles.Task}>All Patients</Text>
           </TouchableOpacity>
           <TouchableOpacity
           onPress={() => navigation.navigate('ViewAllRecords')}> 
-            <Text style={styles.Task}>View All Patient Records</Text>
+            <Text style={styles.Task}>All Records</Text>
           </TouchableOpacity>        
         </View>
         
         <View style={styles.row}>
         <TouchableOpacity
           onPress={() => navigation.navigate('CriticalPatients')}> 
-            <Text style={styles.Task}>Critical Condition Patients</Text>
+            <Text style={styles.Task}>Crit Patients</Text>
           </TouchableOpacity>          
         </View>
       </View>

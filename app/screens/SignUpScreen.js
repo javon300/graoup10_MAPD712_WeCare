@@ -12,16 +12,67 @@
  *  to work onit for milestone 3
  * me
  */
-import React from 'react';
-import { StyleSheet, Text, SafeAreaView, View,TextInput, Button, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
 
 
 export default function SignUpScreen ({navigation})
 {
+
+  //variables
+  const [password1, setPassword1] = useState(" ");
+  const [password2, setPassword2] = useState(" ");
+  const [email, setEmail] = useState(" ");
+
+  //password validation
+  const validation = () => 
+  {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    //if email format is correct
+    if(emailRegex.test(email))
+    {
+      //check if passwords are the same then acccpet 
+      if(password1 == password2)
+      {
+        Alert.alert(
+          "Success",
+          "account has been created successfully",
+          [{ 
+              text: "OK", onPress: () => console.log("OK Pressed") 
+          }]
+        );
+
+        // navigate to home screen
+        navigation.navigate('HomeScreen')
+      }
+      else
+      {
+        Alert.alert(
+          "Failure",
+          "passwords do not match",
+          [{ 
+              text: "OK", onPress: () => console.log("OK Pressed") 
+          }]
+        );
+      }
+    } 
+    else
+    {
+      Alert.alert(
+        "Failure",
+        "not a valid email ",
+        [{ 
+            text: "OK", onPress: () => console.log("OK Pressed") 
+        }]
+      );
+    }    
+  }
+
   return (
     <View style={styles.container}>
+
       <View>
-        <Text style={styles.logo}>Registration Screen </Text>
+        <Text style={styles.logo}>Create New Account</Text>
       </View>
 
       <View style={styles.body}>
@@ -29,20 +80,26 @@ export default function SignUpScreen ({navigation})
         <Text style={styles.label}>Email </Text>
         <TextInput
           style={styles.input}
-          placeholder={'example@email.com'}/>
+          placeholder={'example@email.com'}
+          onChangeText = {text=> setEmail(text)}
+        />
         
         <Text style={styles.label}>Password</Text>
         <TextInput
-          style={styles.input}/>
+          style={styles.input} secureTextEntry={true}
+          onChangeText = {text=> setPassword1(text)}
+        />
 
         <Text style={styles.label}>Confirm Password</Text>
         <TextInput
-          style={styles.input}/>
+          style={styles.input} secureTextEntry={true}
+          onChangeText = {text=> setPassword2(text)}
+        />
       
         <Button
         style={styles.button}
           title={'Create Account'}
-          onPress={() => navigation.navigate('HomeScreen')}>         
+          onPress={() => validation()}>         
         </Button>
       </View>
 
