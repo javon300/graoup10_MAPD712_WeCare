@@ -24,6 +24,70 @@ export default function AddRecordScreen({navigation})
   const [bloodOxygen, setBloodOxygen] = useState(" ");
   const [heartBeatRate, setHeartBeatRate] = useState(" ");
 
+  //open database for web
+function openDatabase() {
+  if (Platform.OS === "web") {
+    return {
+      transaction: () => {
+        return {
+          executeSql: () => {},
+        };
+      },
+    };
+  }
+
+  const db = SQLite.openDatabase("db.db");
+  //open database
+  React.useEffect(() => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "create table if not exists patient_record (id integer primary key not null, b_pressure text, resp_rate text, blood_oxygen text, hb_rate text);"
+      );
+    });
+  }, []);
+
+  
+  return db;
+}
+
+//add to database
+const add = () => {
+  // is text empty?
+  if (bloodPressure === null || bloodPressure === "") {
+    
+    if (RespirationRate === null || RespirationRate === "") {
+      
+      if (bloodOxygen === null || bloodOxygen === "") {
+        
+        if (heartBeatRate === null || heartBeatRate === "") {
+      
+          return false;
+        }
+        return false;
+      }  
+      return false;
+    }
+    
+    return false;
+  }
+
+  db.transaction(
+    (tx) => {
+      //insert data
+      tx.executeSql("insert into patient_record (b_pressure, resp_rate, blood_oxygen, hb_rate) values (?, ?, ?, ?)", [bloodPressure, RespirationRate, bloodOxygen, heartBeatRate]);
+      //get data
+      tx.executeSql("select * from patient_record", [], (_, { rows }) =>
+        console.log(JSON.stringify(rows))
+      );
+    },
+    null,
+  );
+};
+
+const db = openDatabase();
+
+
+
   //check if fields are empty
   const validation = () => 
   {
