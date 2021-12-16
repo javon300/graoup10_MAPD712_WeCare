@@ -6,14 +6,14 @@
  * Poojan Patel           301228811
  * Sanjeevan Pashparaj    301213104
  * Divyesh Solanki        301194819
- * Vidhu Gaba 
+ * Vidhu Gaba             301210694
  * 
  * we named the app weCare hopefully thats not an issue since we will continue
  *  to work onit for milestone 3
  * me
  */
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, Alert, View,TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text,View,} from 'react-native';
 
 
 export default function CriticalPatientsScreen({navigation})

@@ -17,6 +17,7 @@
 import * as React from 'react';     //imposrt all from react not React from react
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 //created screens
 import HomeScreen from './app/screens/HomeScreen';
 import LoginScreen from './app/screens/LoginScreen';
@@ -39,7 +40,6 @@ function App()
   return (
     <NavigationContainer>
       <MyStack.Navigator>
-        <MyStack.Screen name="AddRecord" component={AddRecordScreen} />
         <MyStack.Screen name="LoginScreen" component={LoginScreen} options={{
           headerShown: false
         }}/>
@@ -49,6 +49,7 @@ function App()
         <MyStack.Screen name="SignUpScreen" component={SignUpScreen} options={{
           headerShown: false
         }}/>
+        <MyStack.Screen name="AddRecord" component={AddRecordScreen} />
         <MyStack.Screen name="AddPatient" component={AddPatientScreen}/>
         <MyStack.Screen name="ViewPatient" component={ViewPatientScreen}/>
         <MyStack.Screen name="ViewRecord" component={ViewRecordScreen}/>
@@ -63,3 +64,13 @@ function App()
 }
 
 export default App;
+
+
+
+/************************added this to package.json************************ */
+// "scripts": {
+//   "test": "jest"
+// },
+// "jest": {
+//   "preset": "react-native"
+// }

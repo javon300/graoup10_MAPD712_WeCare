@@ -14,6 +14,7 @@
  */
 import React, {useState} from 'react';
 import { StyleSheet, Text, Alert, ScrollView, SafeAreaView,StatusBar, View,TextInput, Button, } from 'react-native';
+import * as SQLite from "expo-sqlite";
 
 
 export default function AddPatientScreen({navigation})
@@ -25,7 +26,61 @@ export default function AddPatientScreen({navigation})
   const [age, setAge] = useState(" ");
   const [hInsurance, setHInsurance] = useState(" ");
   const [telephone, setTelephone] = useState(" "); 
- 
+  
+
+//open database for web
+function openDatabase() {
+  if (Platform.OS === "web") {
+    return {
+      transaction: () => {
+        return {
+          executeSql: () => {},
+        };
+      },
+    };
+  }
+
+
+  const db = SQLite.openDatabase("db.db");
+  //open database
+  React.useEffect(() => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "create table if not exists patient (id integer primary key not null, firstname text, lastname text, gender text, age text, hInsurance text, telephone text);"
+      );
+    });
+  }, []);
+
+  
+  return db;
+}
+
+//add to database
+const add = () => {
+  // is text empty?
+  if (fName === null || fName === "") {
+    
+    if (lName === null || lName === "") {
+      return false;
+    }
+    return false;
+  }
+
+  db.transaction(
+    (tx) => {
+      //insert data
+      tx.executeSql("insert into patient (firstname, lastname, gender, age, hInsurance, telephone) values (?, ?, ?, ?, ?, ?)", [fName, lName, gender, age, hInsurance, telephone]);
+      //get data
+      tx.executeSql("select * from patient", [], (_, { rows }) =>
+        console.log(JSON.stringify(rows))
+      );
+    },
+    null,
+  );
+};
+
+const db = openDatabase();
+
 
 const validation = () => 
 {
@@ -54,7 +109,7 @@ const validation = () =>
       }
     }
   }//end of nested if
-
+  add(fName,lName)
   //store patient data
   Alert.alert(
     "Success",
@@ -68,6 +123,7 @@ const validation = () =>
       { text: "OK", onPress: () => console.log("OK Pressed") }
     ]
   );
+  
   // navigate to home screen
   navigation.navigate('HomeScreen')
 }
@@ -128,6 +184,12 @@ const validation = () =>
       </ScrollView>
     </SafeAreaView> // main view close
   );
+}
+
+
+function useForceUpdate() {
+  const [value, setValue] = useState(0);
+  return [() => setValue(value + 1), value];
 }
 
 const styles = StyleSheet.create({

@@ -44,22 +44,26 @@ export default function AddRecordScreen({navigation})
         }
       }
     }//end of nested if
-  
-    //store patient data
-    Alert.alert(
-      "Success",
-      "Record Added Successfully",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
+    else{
+      //store patient data
+      Alert.alert(
+        "Success",
+        "Record Added Successfully",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") }
+        ]
+      );
+      
     // navigate to home screen
     navigation.navigate('HomeScreen')
+    }
+  
+    
   }
  
   return (
