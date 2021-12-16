@@ -37,7 +37,7 @@ function openDatabase() {
   }
 
   const db = SQLite.openDatabase("db.db");
-  //open database
+  //open database [Patient Record]
   React.useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
@@ -50,7 +50,7 @@ function openDatabase() {
   return db;
 }
 
-//add to database
+//add to database [Patient Record]
 const add = () => {
   // is text empty?
   if (bloodPressure === null || bloodPressure === "") {
@@ -73,9 +73,9 @@ const add = () => {
 
   db.transaction(
     (tx) => {
-      //insert data
+      //insert the record data to the table 
       tx.executeSql("insert into patient_record (b_pressure, resp_rate, blood_oxygen, hb_rate) values (?, ?, ?, ?)", [bloodPressure, RespirationRate, bloodOxygen, heartBeatRate]);
-      //get data
+      //get all data of database 
       tx.executeSql("select * from patient_record", [], (_, { rows }) =>
         console.log(JSON.stringify(rows))
       );
